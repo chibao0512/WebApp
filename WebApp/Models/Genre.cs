@@ -10,7 +10,7 @@ namespace WebApp.Models
         public int Gen_Id { get; set; }
         [Required]
         public string Gen_Name { get; set; }
-        public int Gen_Description { get; set; }
+        public string Gen_Description { get; set; }
         public virtual ICollection<Book>? books { get; set; }
     }
 }
