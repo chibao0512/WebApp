@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Genre>
+<a class=" btn btn-primary" asp-controller="Genre" asp-action="Create">Add new</a>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var genre in Model)
+    {
+        <tr>
+            <th>@genre.Gen_Id</th>
+            <th>@genre.Gen_Name</th>
+            <th>@genre.Gen_Description</th>
+            <td>
+                <a asp-action="Edit" asp-route-id=@genre.Gen_Id> Edit</a>
+                <a asp-action="Delete" asp-route-id=@genre.Gen_Id onclick="return confirm('Are You Sure?');"> Delete</a>
+            </td>
+        </tr>
+    }
+</table>
