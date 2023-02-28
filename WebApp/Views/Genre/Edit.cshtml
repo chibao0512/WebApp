@@ -1,0 +1,13 @@
+﻿  @model Genre
+<form asp-controller="Genre" asp-action="Edit" method="post">
+    Name: <input type="text" asp-for="Genre_Name" /><span asp-validation-for="Genre_Name" /> </span>
+    <br />
+    <br />
+    Description: <input type="text" asp-for="Genre_Description" /><span asp-validation-for="Genre_Description" /> </span>
+    <br />
+    <br />
+    <input type="submit" value="Submit" / style="text-align: center">
+</form>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

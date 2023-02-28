@@ -1,0 +1,76 @@
+﻿@model Book 
+@*<div class="row">
+    <form asp-controller="Book" asp-action="Create" method="post">
+    Name: <input type="text" asp-for="Book_Title" /><span asp-validation-for="Book_Title"></span>
+    <br />
+        Image<input type="IFormFile" asp-for="Book_Image" /><span asp-validation-for="Book_Image"></span>
+        <br />
+        <div class="form-group">
+            <label asp-for="genre" class="control-label"></label>
+            <select asp-for="Genre_Id" asp-items="@ViewBag.Genre_Id" class="form-control">
+                <option>select genre</option>
+            </select>
+        </div>
+        Aurhor: <input type="text" asp-for="Book_Author" /><span asp-validation-for="Book_Author"></span>
+        <br />
+        Price: <input type="number" asp-for="Book_Price" /><span asp-validation-for="Book_Price"></span>
+        <br />
+        Description: <input type="text" asp-for="Book_Description" /><span asp-validation-for="Book_Description"></span>
+        <br />
+    <br/>
+    <br/>
+    <input type="submit" value="Submit" />
+</form>*@
+<div class="row">
+        <div class="col-md-4">
+        <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Book_Title" class="control-label"></label>
+                <input asp-for="Book_Title" class="form-control" />
+                <span asp-validation-for="Book_Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book_Image" class="control-label"></label>
+                <input asp-for="Book_Image" class="form-control" />
+                <span asp-validation-for="Book_Image" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <label asp-for="genre" class="control-label"></label>
+                    <select asp-for="Genre_Id" asp-items="@ViewBag.Genre_Id" class="form-control">
+                        <option>select genre</option>
+                    </select>
+                </div>
+      
+            <div class="form-group">
+                <label asp-for="Book_Author" class="control-label"></label>
+                <input asp-for="Book_Author" class="form-control" />
+                <span asp-validation-for="Book_Author" class="text-danger"></span>
+            </div>
+        
+            <div class="form-group">
+                <label asp-for="Book_Price" class="control-label"></label>
+                <input asp-for="Book_Price" class="form-control" />
+                <span asp-validation-for="Book_Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book_Description" class="control-label"></label>
+                <input asp-for="Book_Description" class="form-control" />
+                <span asp-validation-for="Book_Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
