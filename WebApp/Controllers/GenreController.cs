@@ -1,32 +1,71 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WebApp.Models;
 
 namespace WebApp.Controllers
 {
     public class GenreController : Controller
     {
-        private readonly ILogger<GenreController> _logger;
-
-        public GenreController(ILogger<GenreController> logger)
+        private readonly ApplicationDbContext _db;
+        public GenreController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
+        // index
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Genre> genre = _db.genres.ToList();
+            return View(genre);
         }
 
-        public IActionResult Privacy()
+        // create
+        public IActionResult Create()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Create(Genre genre)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                _db.genres.Add(genre);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(genre);
+        }
+
+        // edit
+        public IActionResult Edit(int id)
+        {
+            Genre genre = _db.genres.Find(id);
+            if (genre == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(genre);
+        }
+        [HttpPost]
+        public IActionResult Edit(Genre genre, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                genre.Gen_Id = id;
+                _db.genres.Update(genre);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(genre);
+        }
+
+        // delete
+        public IActionResult Delete(int id)
+        {
+            Genre genre = _db.genres.Find(id);
+            _db.genres.Remove(genre);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
