@@ -1,7 +1,8 @@
-﻿@model Book
+﻿@model WebApp.Models.Book
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
 }
 
 <h1>Create</h1>
@@ -54,6 +55,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-@section scripts{
-    <partial name="_ValidationScriptsPartial" />
-}
