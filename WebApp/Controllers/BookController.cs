@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -41,6 +42,8 @@ namespace WebApp.Controllers
             session.SetString(CARTKEY, jsoncart);
         }
         // index
+        [Route("/Owner/Book")]
+        [Authorize(Roles ="Owner")]
         public IActionResult Index()
         {
             IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
@@ -129,12 +132,13 @@ namespace WebApp.Controllers
 
 
         // create
+        [Authorize(Roles ="Owner")]
         public IActionResult Create()
         {
             ViewData["Gen_Id"] = new SelectList(_db.genres, "Gen_Id", "Gen_Name");
             return View();
         }
-
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         public IActionResult Create(Book book)
         {
@@ -148,6 +152,7 @@ namespace WebApp.Controllers
         }
 
         // edit
+        [Authorize(Roles = "Owner")]
         public IActionResult Edit(int id)
         {
            ViewData["Gen_Id"] = new SelectList(_db.genres, "Gen_Id", "Gen_Name");
@@ -158,6 +163,7 @@ namespace WebApp.Controllers
             }
             return View(book);
         }
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         public IActionResult Edit(Book book, int id)
         {
@@ -172,6 +178,7 @@ namespace WebApp.Controllers
         }
 
         // delete
+        [Authorize(Roles = "Owner,Admin")]
         public IActionResult Delete(int id)
         {
             Book book = _db.books.Find(id);
