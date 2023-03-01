@@ -126,7 +126,7 @@ namespace WebApp.Areas.Identity.Pages.Account
                     }
                     else if (roles.Contains("Owner"))
                     {
-                        return Redirect("~/Owner/Book");
+                        return Redirect("~/Owner/Index");
                     }
                     else if (roles.Contains("Admin"))
                     {
