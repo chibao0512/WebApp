@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace WebApp.Controllers
 {
-    [Authorize]
+    
     public class AppRoleController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
