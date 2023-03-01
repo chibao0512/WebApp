@@ -32,22 +32,8 @@
         </tr>
     }
 </table>
-<div class="Wrapper">
+ 
+
     
-        @foreach (var book in Model)
-        {
-        <div class=card>
-            <div class="card-header">@book.Book_Id</div>
-            <h3 class="card-header">@book.Book_Title</h3>
-            <div class="card-body" style="height: 150px;">
-                @book.Book_Description
-            </div>
-            <div class="card-footer">
-                <span class="text-muted">@(book.Book_Price.ToString("n0"))VND</span>
-                <a asp-action="AddToCart" asp-route-id="@book.Book_Id"
-                   class="btn btn-secondary btn-sm float-right">Order</a>
-            </div>
-        </div>
-        }
-     
-</div>
+       
+

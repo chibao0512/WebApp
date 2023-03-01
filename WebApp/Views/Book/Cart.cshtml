@@ -45,20 +45,20 @@
         </tr>
     </table>
 
-    <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Confirm</a>
+    <a asp-controller="Book" asp-action="Checkout"  class="btn btn-success">Order</a>
 
     @section Scripts {
     <script>
         $(document).ready(function () {
             $(".updatecartitem").click(function (event) {
                 event.preventDefault();
-                var productid = $(this).attr("data-id");
-                var quantity = $("#quantity-" + productid).val();
+                var bookid = $(this).attr("data-id");
+                var quantity = $("#quantity-" + bookid).val();
                 $.ajax({
                     type: "POST",
                     url: "@Url.RouteUrl("UpdateCart")",
                     data: {
-                        id: productid,
+                        id: bookid,
                         quanty: quantity
                     },
                     success: function (result) {
