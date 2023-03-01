@@ -9,8 +9,10 @@ namespace WebApp.Controllers
     public class BookController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public BookController(ApplicationDbContext db)
+        private readonly ILogger<BookController>_logger; 
+        public BookController ( ILogger<BookController> logger, ApplicationDbContext db)
         {
+            _logger = logger;
             _db = db;
         }
         public const string CARTKEY = "cart";
@@ -88,28 +90,29 @@ namespace WebApp.Controllers
         }
         [HttpPost]
         [Route("/updatecart", Name = "updatecart")]
-        public IActionResult UpdateCart(int id, int quantities)
+        public IActionResult UpdateCart(int id, int quanty)
         {
             var cart = GetCartItems();
             var cartitem = cart.Find(p => p.book.Book_Id == id);
             if (cartitem != null)
             {
                 // Đã tồn tại, tăng thêm 1
-                cartitem.Cart_Quantity = quantities;
+                cartitem.Cart_Quantity = quanty;
             }
             SaveCartSession(cart);
             // Trả về mã thành công (không có nội dung gì - chỉ để Ajax gọi)
             return Ok();
         }
-         public IActionResult CheckOut()
+
+        public IActionResult CheckOut()
         {
             // Xử lý khi đặt hàng
 
             return View();
         }
-        /// <summary>
+
         /// //////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
+
 
 
         // create

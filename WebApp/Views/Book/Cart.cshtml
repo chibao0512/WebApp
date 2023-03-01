@@ -1,15 +1,14 @@
 ﻿@model List<Cart>
-@{
-    ViewData["Title"] = "Cart";
-}
+
 @if (Model.Count > 0)
 {
+
     decimal total = 0;
     int stt = 1;
 
     <table class="table">
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Book</th>
             <th>Price</th>
             <th>Quantity</th>
@@ -18,15 +17,17 @@
         </tr>
         @foreach (var cartitem in Model)
         {
-            var TotalMoney = cartitem.Cart_Quantity * cartitem.book.Book_Price;
-            total += TotalMoney;
+            var Total= cartitem.Cart_Quantity * cartitem.book.Book_Price;
+            total += Total;
 
             <tr>
                 <td>@(stt++)</td>
                 <td>@cartitem.book.Book_Title</td>
                 <td>@(cartitem.book.Book_Price.ToString("n0"))</td>
+
                 <td><input asp-for="@cartitem.Cart_Quantity" id="@($"quantity-{cartitem.book.Book_Id}")" /></td>
-                <td>@(TotalMoney.ToString("n0"))</td>
+
+                <td>@(Total.ToString("n0"))</td>
                 <td>
                     <button class="btn btn-success updatecartitem"
                     data-id="@cartitem.book.Book_Id">
@@ -38,28 +39,27 @@
             </tr>
         }
         <tr>
-            <td colspan="4" class="text-right">Total</td>
+            <td colspan="4" class="text-right">Total Money</td>
             <td>@(total.ToString("n0"))</td>
             <td></td>
         </tr>
     </table>
 
-    <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Connfirm</a>
+    <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Confirm</a>
 
     @section Scripts {
     <script>
-        S
         $(document).ready(function () {
             $(".updatecartitem").click(function (event) {
                 event.preventDefault();
-                var bookid = $(this).attr("data-id");
-                var quantity = $("#quantity-" + bookid).val();
+                var productid = $(this).attr("data-id");
+                var quantity = $("#quantity-" + productid).val();
                 $.ajax({
                     type: "POST",
                     url: "@Url.RouteUrl("UpdateCart")",
                     data: {
-                        id: bookid,
-                        quantity: quantity
+                        id: productid,
+                        quanty: quantity
                     },
                     success: function (result) {
                         window.location.href = "@Url.RouteUrl("Cart")";
@@ -69,8 +69,4 @@
         });
     </script>
       }
-}
-else
-{
-    <p class="alert alert-danger">Empty cart</p>
 }
