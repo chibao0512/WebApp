@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Publisher>
+<a class=" btn btn-primary" asp-controller="Publisher" asp-action="Create">Add new</a>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    @foreach (var publisher in Model)
+    {
+        <tr>
+            <th>@publisher.Publisher_Id</th>
+            <th>@publisher.Publisher_Name</th>
+            <th>@publisher.Publisher_Address</th>
+            <td>
+                <a asp-action="Edit" asp-route-id=@publisher.Publisher_Id> Edit</a>
+                <a asp-action="Delete" asp-route-id=@publisher.Publisher_Id onclick="return confirm('Are You Sure?');"> Delete</a>
+            </td>
+        </tr>
+    }
+</table>

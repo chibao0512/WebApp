@@ -11,7 +11,6 @@ namespace WebApp.Models
         [StringLength(50)]
         public string Publisher_Name { get; set; }
         public string Publisher_Address { get; set; }
-        public virtual ICollection<Book>? books { get; set; }
 
     }
 }
