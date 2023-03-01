@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApp.Data;
 using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+    [Authorize(Roles ="Owner")]
     public class GenreController : Controller
     {
         private readonly ApplicationDbContext _db;
