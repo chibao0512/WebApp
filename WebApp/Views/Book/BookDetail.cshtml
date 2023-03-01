@@ -23,7 +23,8 @@
             <p class="mb-4">Description: @book.Book_Description</p>
             <p class="mb-4">Genre: @book.genre.Gen_Name</p>
                 <p class="mb-4">Author: @book.Book_Author</p>
-                <a asp-action="AddToCart" asp-route-id="@book.Book_Id" class="btn btn-secondary btn-sm float-right">Add To Cart</a>
+                <a asp-action="AddToCart" asp-route-id="@book.Book_Id" class="btn btn-primary btn-sm float-right">Add To Cart</a>
+               <a asp-action="IndexBookUser" class="btn btn-warning">Back To List</a>
         </div>
     </div>
     }

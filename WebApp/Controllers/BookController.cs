@@ -57,8 +57,8 @@ namespace WebApp.Controllers
         public IActionResult BookDetail(int id)
         {
             IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
-            var detailbook = book.Where(d => d.Book_Id == id).FirstOrDefault(); 
-            return View(detailbook);
+            //var detail = book.Where(d => d.Book_Id == id).FirstOrDefault(); 
+            return View(book);
             //return View(book);
         }
 
