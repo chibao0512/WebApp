@@ -46,6 +46,19 @@ namespace WebApp.Controllers
             IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
             return View(book);
         }
+        public IActionResult IndexBookUser()
+        {
+            IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
+            return View(book);
+        }
+        public IActionResult BookDetail(int id)
+        {
+            IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
+            var detailbook = book.Where(d => d.Book_Id == id).FirstOrDefault(); 
+            return View(detailbook);
+            //return View(book);
+        }
+
         public IActionResult AddToCart(int id)
         {
             var book = _db.books.Where(p => p.Book_Id == id).FirstOrDefault();
