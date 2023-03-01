@@ -132,13 +132,15 @@ namespace WebApp.Controllers
 
 
         // create
-        [Authorize(Roles ="Owner")]
+        [Route("/Owner/Book/Create")]
+        [Authorize(Roles = "Owner")]
         public IActionResult Create()
         {
             ViewData["Gen_Id"] = new SelectList(_db.genres, "Gen_Id", "Gen_Name");
             return View();
         }
         [Authorize(Roles = "Owner")]
+        [Route("/Owner/Book/Create")]
         [HttpPost]
         public IActionResult Create(Book book)
         {
@@ -153,6 +155,7 @@ namespace WebApp.Controllers
 
         // edit
         [Authorize(Roles = "Owner")]
+        [Route("/Owner/Book/Edit/{id:}")]
         public IActionResult Edit(int id)
         {
            ViewData["Gen_Id"] = new SelectList(_db.genres, "Gen_Id", "Gen_Name");
@@ -164,6 +167,7 @@ namespace WebApp.Controllers
             return View(book);
         }
         [Authorize(Roles = "Owner")]
+        [Route("/Owner/Book/Edit/{id:}")]
         [HttpPost]
         public IActionResult Edit(Book book, int id)
         {
@@ -178,7 +182,8 @@ namespace WebApp.Controllers
         }
 
         // delete
-        [Authorize(Roles = "Owner,Admin")]
+        [Authorize(Roles = "Owner")]
+        [Route("/Owner/Book/Delete/{id:}")]
         public IActionResult Delete(int id)
         {
             Book book = _db.books.Find(id);

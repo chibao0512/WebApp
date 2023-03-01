@@ -1,9 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<WebApp.Models.Book>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
 }
 
-@model IEnumerable<Book>
-<a class=" btn btn-primary" asp-controller="Book" asp-action="Create">Add new</a>
+<a class=" btn btn-primary" asp-action="Create">Add new</a>
 <table class="table table-hover">
     <tr>
         <th>ID</th>

@@ -15,6 +15,7 @@ namespace WebApp.Controllers
         }
 
         // index
+        [Route("/Owner/Genre")]
         public IActionResult Index()
         {
             IEnumerable<Genre> genre = _db.genres.ToList();
@@ -22,12 +23,14 @@ namespace WebApp.Controllers
         }
 
         // create
+        [Route("/Owner/Genre/Create")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("/Owner/Genre/Create")]
         public IActionResult Create(Genre genre)
         {
             if (ModelState.IsValid)
@@ -40,6 +43,7 @@ namespace WebApp.Controllers
         }
 
         // edit
+        [Route("/Owner/Genre/Edit/{id:}")]
         public IActionResult Edit(int id)
         {
             Genre genre = _db.genres.Find(id);
@@ -50,6 +54,7 @@ namespace WebApp.Controllers
             return View(genre);
         }
         [HttpPost]
+        [Route("/Owner/Genre/Edit/{id:}")]
         public IActionResult Edit(Genre genre, int id)
         {
             if (ModelState.IsValid)
@@ -63,6 +68,7 @@ namespace WebApp.Controllers
         }
 
         // delete
+        [Route("/Owner/Genre/Delete/{id:}")]
         public IActionResult Delete(int id)
         {
             Genre genre = _db.genres.Find(id);

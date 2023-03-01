@@ -73,7 +73,7 @@ namespace WebApp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Register");
+                    return RedirectToAction("RegisterOwner");
                 }
             }
             return RedirectToAction("ShowOwner");
