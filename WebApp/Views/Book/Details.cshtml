@@ -1,0 +1,83 @@
+﻿@model WebApp.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="color:blue">Book Detail</h1>
+
+@*<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+        <dt cl>
+
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book_Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book_Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book_Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book_Author)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book_Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book_Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book_Publisher)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book_Publisher)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book_Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book_Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.genre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.genre.Gen_Name)
+        </dd>
+    </dl>
+</div>*@
+<div class="container-fluid py-5">
+   @* <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Detail Book</span></h2>
+    </div>*@
+    <div class="row px-xl-5">
+        <div class="col-lg-5 pb-5">
+            <div id="" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.5wQRNWNNG7QXA0-whuwv4gHaE7&pid=Api&P=0" class="card-img-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 pb-5">
+            <h3 class="font-weight-semi-bold"><b>   Title:</b> @Model.Book_Title</h3>
+            <h3 class="font-weight-semi-bold mb-4"><b>Price:</b>  @Model.Book_Price <a>VNĐ</a></h3>
+            <p class="mb-4"><b>Description:</b>   @Model.Book_Description</p>
+            <p class="mb-4"><b>Author:</b>   @Model.Book_Author</p>
+            <p class="mb-4"><b>Publisher:</b>  @Model.Book_Publisher</p>
+
+            <a asp-action="AddToCart" asp-route-id="@Model.Book_Id" class="btn btn-primary btn-sm float-right">Add To Cart</a>
+            <a asp-action="IndexBookUser" class="btn btn-warning btn-sm float-right">Back To List</a>
+        </div>
+    </div>
+</div>
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Book_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@

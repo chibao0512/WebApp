@@ -54,12 +54,22 @@ namespace WebApp.Controllers
             IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
             return View(book);
         }
-        public IActionResult BookDetail(int id)
+        public async Task<IActionResult> Details(int? id)
         {
-            IEnumerable<Book> book = _db.books.Include(b => b.genre).ToList();
-            //var detail = book.Where(d => d.Book_Id == id).FirstOrDefault(); 
+            if (id == null || _db.books == null)
+            {
+                return NotFound();
+            }
+
+            var book = await _db.books
+                .Include(b => b.genre)
+                .FirstOrDefaultAsync(m => m.Book_Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
             return View(book);
-            //return View(book);
         }
 
         public IActionResult AddToCart(int id)
@@ -67,7 +77,6 @@ namespace WebApp.Controllers
             var book = _db.books.Where(p => p.Book_Id == id).FirstOrDefault();
             if (book == null)
                 return NotFound("No found products");
-
             var cart = GetCartItems();
             var cartitem = cart.Find(p => p.book.Book_Id == id);
             if (cartitem != null)
