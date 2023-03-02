@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ASM_DEMO_1670.Areas.Identity.Pages.Account.Manage
 {
-    public class DownloadPersonalDataModel : PageModel
+    public class DownloadPersonalDataModel : ApplicationUser
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<DownloadPersonalDataModel> _logger;
