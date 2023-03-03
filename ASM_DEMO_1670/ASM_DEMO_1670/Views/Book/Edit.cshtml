@@ -1,0 +1,76 @@
+﻿@model Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Book</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" asp-route-img="@Model.urlImage" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for=" Book_Title" class="control-label"></label>
+                <input asp-for=" Book_Title" class="form-control" />
+                <span asp-validation-for=" Book_Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=" Book_Author" class="control-label"></label>
+                <input asp-for=" Book_Author" class="form-control" />
+                <span asp-validation-for=" Book_Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Genre</label>
+                <select asp-for="genre_Id" asp-items="@ViewBag.genre_Id" class="form-control">
+                    <option>select genre</option>
+                </select>
+                <span asp-validation-for="genre_Id" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for=" Book_Price" class="control-label"></label>
+                <input asp-for=" Book_Price" class="form-control" />
+                <span asp-validation-for=" Book_Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=" Book_Publisher" class="control-label"></label>
+                <input asp-for=" Book_Publisher" class="form-control" />
+                <span asp-validation-for=" Book_Publisher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" type="file" onchange="chooseFile(this)" accept="image/gif, image/jpeg, image/png" style="width: 100%" class="form-control" />
+                <div> <img src="~/uploads/@Model.urlImage" style="height:200px;width:250px" id="image" /></div>
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book_Description" class="control-label"></label>
+                <input asp-for="Book_Description" class="form-control" />
+                <span asp-validation-for="Book_Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+<script>
+    function chooseFile(fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            var render = new FileReader();
+
+            render.onload = function (e) {
+                $('#image').attr('src', e.target.result);
+            }
+            render.readAsDataURL(fileInput.files[0]);
+        }
+    }
+</script>

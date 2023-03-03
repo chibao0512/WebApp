@@ -18,6 +18,10 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(cfg => {
+    cfg.Cookie.Name = "user";
+    cfg.IdleTimeout = new TimeSpan(0, 10000, 0);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,7 +38,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthentication();

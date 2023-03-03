@@ -1,20 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASM_DEMO_1670.Models
 {
     public class OrderDetail
     {
-        [Required]
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; } 
+        
         public int OrderId { get; set; }
-        [Required]
+      
         public int BookId { get; set; }
-        [Required]
-
-
+       
         public int Quantity { get; set; }
-        [Required]
-        public double UnitPrice { get; set; }
-        public Order Order { get; set; }
-        public Book Book { get; set; }
+        [ForeignKey("OrderId")]
+        [JsonIgnore]
+        public virtual Order? order { get; set; }
+        [ForeignKey("BookId")]
+        [JsonIgnore]
+        public virtual Book?Book { get; set; }
     }
 }

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Book>
+<a class=" btn btn-primary" asp-controller="Book" asp-action="Create">Add new</a>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Genre</th>
+        <th>Publisher</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var book in Model)
+    {
+            <tr>
+               <th>@book.Book_Id</th>
+                <th>@book.Book_Title</th>
+                <th><img src="~/uploads/@book.urlImage" style="width: 100px; height: 100px" /></th>
+                <th>@book.Book_Author</th>
+                <th>@book.Book_Price</th>
+                <th>@book.genre.genre_Name</th>
+                <th>@book.Book_Publisher</th>
+                <th>@book.Book_Description</th>             
+                <th></th>
+                <td>
+                    <a asp-action="Edit" asp-route-id=@book.Book_Id asp-route-img="@book.Image"> Edit</a>
+                    <a asp-action="Delete" asp-route-id=@book.Book_Id asp-route-img="@book.urlImage" onclick="return confirm('Are You Sure?');"> Delete</a>
+                </td>
+            </tr>
+    }
+</table>

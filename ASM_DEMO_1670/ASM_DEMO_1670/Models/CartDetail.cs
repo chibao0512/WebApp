@@ -5,23 +5,12 @@ namespace ASM_DEMO_1670.Models
 {
     public class CartDetail
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public int ShoppingCartId { get; set; }
-        [Required]
-        public int BookId { get; set; }
-        [Required]
+        
+     
         public int Quantity { get; set; }
-        [Required]
-        public double UnitPrice { get; set; }
+        public string Cus_Id { get; set; }
+        public  Book? Book { get; set; }
 
-
-
-        [ForeignKey("BookId")]
-        public virtual Book? Book { get; set; }
-
-        [ForeignKey("ShoppingCartId")]
-        public ShoppingCart ShoppingCart { get; set; }
+       
     }
 }

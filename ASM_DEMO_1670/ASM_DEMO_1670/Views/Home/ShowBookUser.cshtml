@@ -1,0 +1,33 @@
+﻿ @model IEnumerable<ASM_DEMO_1670.Models.Book>
+@{
+    ViewData["Title"] = "ShowBookUser";
+}
+
+<div class="container-fluid pt-5">
+<div class="row px-xl-5 pb-3">
+    @foreach (var book in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="card product-item border-0 mb-4">
+                    <th><img src="~/uploads/@book.urlImage" style="width: 230px; height: 150px" class="card-img-top"></th>
+                <div class="card-body">
+                    
+                        <h5 class="card-title">Title: @book.Book_Title</h5>
+                    <p class="card-text">Description: @book.Book_Description</p>
+                </div>
+              
+                      <div class="card-footer">
+                          <a>Price:</a>
+                           <span class="text-muted">@(book.Book_Price.ToString("n0"))VND</span>
+                           <br>
+                           <br>
+                      @*  <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@book.Book_Id"  class="btn btn-primary btn-sm float-right">Add To Cart</a>*@
+                       
+                        <a asp-action="Details" asp-route-id="@book.Book_Id" class="btn btn-warning btn-sm float-right">View Detail</a>
+                    </div>                    
+            </div>
+
+        </div>
+    }
+</div>
+</div>

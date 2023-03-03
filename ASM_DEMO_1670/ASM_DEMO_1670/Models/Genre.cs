@@ -8,7 +8,7 @@ namespace ASM_DEMO_1670.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
+        
         public int genre_Id { get; set; }
         [Required]
        

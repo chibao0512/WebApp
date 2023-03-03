@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1670 ASP.net\\ASM2-8\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj": {}
+    "D:\\Web1670\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj": {}
   },
   "projects": {
-    "D:\\1670 ASP.net\\ASM2-8\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj": {
+    "D:\\Web1670\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1670 ASP.net\\ASM2-8\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj",
+        "projectUniqueName": "D:\\Web1670\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj",
         "projectName": "ASM_DEMO_1670",
-        "projectPath": "D:\\1670 ASP.net\\ASM2-8\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj",
-        "packagesPath": "C:\\Users\\FPTSHOP\\.nuget\\packages\\",
-        "outputPath": "D:\\1670 ASP.net\\ASM2-8\\ASM_DEMO_1670\\ASM_DEMO_1670\\obj\\",
+        "projectPath": "D:\\Web1670\\ASM_DEMO_1670\\ASM_DEMO_1670\\ASM_DEMO_1670.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "D:\\Web1670\\ASM_DEMO_1670\\ASM_DEMO_1670\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\FPTSHOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

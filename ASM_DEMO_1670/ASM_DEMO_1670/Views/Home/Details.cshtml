@@ -1,0 +1,33 @@
+﻿ @model ASM_DEMO_1670.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="color:blue">Book Detail</h1>
+
+<div class="container-fluid py-5">
+ 
+    <div class="row px-xl-5">
+        <div class="col-lg-5 pb-5">
+            <div id="" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="~/uploads/@Model.urlImage" class="card-img-top"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 pb-5">
+            <h3 class="font-weight-semi-bold"><b>Title:</b> @Model.Book_Title</h3>
+            <h3 class="font-weight-semi-bold mb-4"><b>Price:</b> @Model.Book_Price <a>VNĐ</a></h3>
+            <p class="mb-4"><b>Description:</b>   @Model.Book_Description</p>
+            <p class="mb-4"><b>Author:</b>   @Model.Book_Author</p>
+            <p class="mb-4"><b>Publisher:</b>  @Model.Book_Publisher</p>
+
+            <a asp-controller="ShoppingCart"  asp-action="AddToCart" asp-route-bookid="@Model.Book_Id" class="btn btn-primary btn-sm float-right">Add To Cart</a>
+            <a asp-action="ShowBookUser" class="btn btn-warning btn-sm float-right">Back To List</a>
+        </div>
+    </div>
+</div>
+ 
