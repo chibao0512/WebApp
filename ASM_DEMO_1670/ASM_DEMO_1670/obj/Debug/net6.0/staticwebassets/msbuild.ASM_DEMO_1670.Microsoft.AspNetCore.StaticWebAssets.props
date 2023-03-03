@@ -7744,6 +7744,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a09555e3-6d0e-4760-8ebf-fc65f85f14440th.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b0e6e51f-3711-465b-ab20-ea1cbff4569e0th.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASM_DEMO_1670</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASM_DEMO_1670</BasePath>
+      <RelativePath>uploads/b0e6e51f-3711-465b-ab20-ea1cbff4569e0th.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b0e6e51f-3711-465b-ab20-ea1cbff4569e0th.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d2e069f4-790d-4943-97b7-34b6c57a49360th.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>ASM_DEMO_1670</SourceId>

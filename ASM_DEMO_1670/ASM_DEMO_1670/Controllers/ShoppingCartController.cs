@@ -91,7 +91,16 @@ namespace ASM_DEMO_1670.Controllers
             var cartitem = cart.Find(p => p.Book.Book_Id == bookid);
             if (cartitem != null)
             {
-                cartitem.Quantity = quantity;
+                if (quantity < 1)
+                {
+
+                    return RedirectToAction(nameof(Cart));
+                }
+                else
+                {
+                    cartitem.Quantity = quantity;
+                }
+
             }
             SaveCartSession(cart);
             return Ok();
