@@ -5,11 +5,13 @@ namespace ASM_DEMO_1670.Controllers
 {
     public class AdminController : Controller
     {
+
         private readonly RoleManager<IdentityRole> _roleManager;
         public AdminController(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }
+        [Route("Admin/DSRole")]
         //list all role create by user
         public IActionResult DSRole()
         {
